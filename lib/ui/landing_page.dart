@@ -36,8 +36,8 @@ class LandingPage extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Padding(
-                  padding: const EdgeInsets.only(right: AppSize.defaultwidth),
+              const Padding(
+                  padding: EdgeInsets.only(right: AppSize.defaultwidth),
                   child: AnimatedImage()),
             ],
           ),
