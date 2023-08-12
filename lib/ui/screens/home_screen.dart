@@ -14,28 +14,32 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 150),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const TextWidget(),
-              const SizedBox(height: AppSize.defaultheight / 2.5),
-              const SocialButton(),
-              const SizedBox(height: AppSize.defaultheight / 2.5),
-              FadeInUp(
-                  duration: const Duration(milliseconds: 2000),
-                  delay: const Duration(milliseconds: 2500),
-                  child: DownloadButton(
-                    buttonName: 'Download CV',
-                  )),
-            ],
-          ),
-          const AnimatedImage(),
-        ],
+    return SizedBox(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 150),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const TextWidget(),
+                const SizedBox(height: AppSize.defaultheight / 2.5),
+                const SocialButton(),
+                const SizedBox(height: AppSize.defaultheight / 2.5),
+                FadeInUp(
+                    duration: const Duration(milliseconds: 2000),
+                    delay: const Duration(milliseconds: 2500),
+                    child: DownloadButton(
+                      buttonName: 'Download CV',
+                    )),
+              ],
+            ),
+            const AnimatedImage(),
+          ],
+        ),
       ),
     );
   }
