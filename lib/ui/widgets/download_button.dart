@@ -6,9 +6,11 @@ import '../../util/app_size.dart';
 // ignore: must_be_immutable
 class DownloadButton extends StatefulWidget {
   bool isSelected;
+  final String buttonName;
   DownloadButton({
     super.key,
     this.isSelected = false,
+    required this.buttonName,
   });
 
   @override
@@ -33,7 +35,7 @@ class _DownloadButtonState extends State<DownloadButton> {
         });
       },
       child: Text(
-        'Download CV',
+        widget.buttonName,
         style: Theme.of(context).textTheme.bodySmall!.copyWith(
               color: widget.isSelected
                   ? AppColors.secondaryColor

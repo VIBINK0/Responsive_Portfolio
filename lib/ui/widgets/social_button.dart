@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/app_size.dart';
+import 'package:animate_do/animate_do.dart';
 
 import '../../util/app_assets.dart';
 import 'social_media_button.dart';
@@ -25,44 +26,64 @@ class _SocialButtonState extends State<SocialButton> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SocialMedias(
-          image: AppAssets.face,
-          isselected: isSelectedList[0],
-          ontap: () {
-            _handleTap(0);
-          },
+        FadeInRight(
+          duration: const Duration(milliseconds: 2000),
+          delay: const Duration(seconds: 1),
+          child: SocialMedias(
+            image: AppAssets.face,
+            isselected: isSelectedList[0],
+            ontap: () {
+              _handleTap(0);
+            },
+          ),
         ),
         const SizedBox(width: AppSize.defaultSize),
-        SocialMedias(
-          image: AppAssets.twit,
-          isselected: isSelectedList[1],
-          ontap: () {
-            _handleTap(1);
-          },
+        FadeInRight(
+          duration: const Duration(milliseconds: 2000),
+          delay: const Duration(milliseconds: 1500),
+          child: SocialMedias(
+            image: AppAssets.twit,
+            isselected: isSelectedList[1],
+            ontap: () {
+              _handleTap(1);
+            },
+          ),
         ),
         const SizedBox(width: AppSize.defaultSize),
-        SocialMedias(
-          isselected: isSelectedList[2],
-          image: AppAssets.insta,
-          ontap: () {
-            _handleTap(2);
-          },
+        FadeInRight(
+          duration: const Duration(milliseconds: 2000),
+          delay: const Duration(milliseconds: 2000),
+          child: SocialMedias(
+            isselected: isSelectedList[2],
+            image: AppAssets.insta,
+            ontap: () {
+              _handleTap(2);
+            },
+          ),
         ),
         const SizedBox(width: AppSize.defaultSize),
-        SocialMedias(
-          isselected: isSelectedList[3],
-          image: AppAssets.link,
-          ontap: () {
-            _handleTap(3);
-          },
+        FadeInRight(
+          duration: const Duration(milliseconds: 2000),
+          delay: const Duration(milliseconds: 2500),
+          child: SocialMedias(
+            isselected: isSelectedList[3],
+            image: AppAssets.link,
+            ontap: () {
+              _handleTap(3);
+            },
+          ),
         ),
         const SizedBox(width: AppSize.defaultSize),
-        SocialMedias(
-          image: AppAssets.git,
-          isselected: isSelectedList[4],
-          ontap: () {
-            _handleTap(4);
-          },
+        FadeInRight(
+          duration: const Duration(milliseconds: 2000),
+          delay: const Duration(milliseconds: 3000),
+          child: SocialMedias(
+            image: AppAssets.git,
+            isselected: isSelectedList[4],
+            ontap: () {
+              _handleTap(4);
+            },
+          ),
         ),
       ],
     );

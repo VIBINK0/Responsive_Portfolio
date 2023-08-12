@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/widgets/animated_image.dart';
-import 'package:portfolio/ui/widgets/social_button.dart';
-import 'package:portfolio/ui/widgets/text_widget.dart';
+import 'package:portfolio/ui/screens/projects_screen.dart';
+import 'package:portfolio/ui/screens/service_screen.dart';
 import 'package:portfolio/util/app_colors.dart';
 import 'package:portfolio/util/app_size.dart';
-import 'widgets/download_button.dart';
+import 'screens/about_screen.dart';
+import 'screens/home_screen.dart';
 import 'widgets/my_app_bar.dart';
 
 class LandingPage extends StatelessWidget {
@@ -20,27 +20,29 @@ class LandingPage extends StatelessWidget {
         title: const MyAppBar(),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(128, 150, 0, 0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const TextWidget(),
-                  const SizedBox(height: AppSize.defaultheight / 2.5),
-                  const SocialButton(),
-                  const SizedBox(height: AppSize.defaultheight / 2.5),
-                  DownloadButton(),
-                ],
-              ),
-              const Spacer(),
-              const Padding(
-                  padding: EdgeInsets.only(right: AppSize.defaultwidth),
-                  child: AnimatedImage()),
-            ],
-          ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: const HomeScreen(),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: const AboutScreen(),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: const ServiceScreen(),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: const ProjectScreen(),
+            ),
+          ],
         ),
       ),
     );

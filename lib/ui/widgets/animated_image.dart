@@ -24,8 +24,8 @@ class _AnimatedImageState extends State<AnimatedImage>
     )..repeat(reverse: true);
 
     _animation = Tween<double>(
-      begin: -0.04, // Start position (top)
-      end: 0.01, // End position (bottom)
+      begin: -0.2, // Start position (top)
+      end: -0.15, // End position (bottom)
     ).animate(_controller);
   }
 
@@ -46,8 +46,8 @@ class _AnimatedImageState extends State<AnimatedImage>
           child: Image.asset(
             AppAssets.pro1,
             fit: BoxFit.fill,
-            height: 300,
-            width: 250,
+            height: 430,
+            width: 380,
           ),
         );
       },
