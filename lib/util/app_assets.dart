@@ -14,4 +14,6 @@ class AppAssets {
 
   static const String work1 = 'assets/images/work1.jpg';
   static const String work2 = 'assets/images/work2.jpg';
+
+  static const String share = 'assets/images/share.png';
 }

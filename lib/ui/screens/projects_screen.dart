@@ -21,6 +21,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
     AppAssets.work2,
   ];
 
+  // ignore: prefer_typing_uninitialized_variables
   var ishover;
 
   @override
@@ -38,32 +39,25 @@ class _ProjectScreenState extends State<ProjectScreen> {
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
-                mainAxisExtent: 250,
+                mainAxisExtent: 230,
                 mainAxisSpacing: AppSize.defaultSize,
                 crossAxisSpacing: AppSize.defaultSize,
               ),
               itemBuilder: (context, index) {
                 var image = images[index];
                 return InkWell(
-                  // onEnter: (event) {
-                  //   setState(() {
-                  //     ishover = true;
-                  //   });
-                  // },
-                  // onExit: (event) {
-                  //   setState(() {
-                  //     ishover = false;
-                  //   });
-                  // },
                   hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
                   onTap: () {},
                   onHover: (f) {
                     setState(() {
-                      setState(() {
-                        if (f) {
-                          ishover = index;
-                        }
-                      });
+                      if (f) {
+                        ishover = index;
+                      } else {
+                        ishover = null;
+                      }
                     });
                   },
                   child: Stack(
@@ -78,7 +72,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       Visibility(
                         visible: index == ishover,
                         child: Container(
-                          width: 376,
+                          width: 345,
                           padding: const EdgeInsets.symmetric(
                               horizontal: AppSize.defaultSize),
                           decoration: BoxDecoration(
@@ -110,13 +104,23 @@ class _ProjectScreenState extends State<ProjectScreen> {
                                         fontSize: 24),
                               ),
                               Text(
-                                'Passionate about creating engaging and interactive user experiences.',
+                                'Passionate about creating engaging and interactive user experiences, I am a Computer Science graduate with expertise in Flutter, Dart, HTML, and CSS.....',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
                                     .copyWith(
                                         color: AppColors.primaryTextColor),
                                 textAlign: TextAlign.center,
+                              ),
+                              GestureDetector(
+                                child: CircleAvatar(
+                                  backgroundColor: AppColors.primaryTextColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(
+                                        AppSize.defaultSize / 3),
+                                    child: Image.asset(AppAssets.share),
+                                  ),
+                                ),
                               ),
                             ],
                           ),

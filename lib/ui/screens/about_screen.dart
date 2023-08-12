@@ -58,6 +58,7 @@ class AboutScreen extends StatelessWidget {
                       .textTheme
                       .bodySmall!
                       .copyWith(color: AppColors.primaryTextColor),
+                  textAlign: TextAlign.justify,
                 ),
               ),
               const SizedBox(height: AppSize.defaultSize),
