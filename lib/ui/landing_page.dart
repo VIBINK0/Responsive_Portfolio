@@ -23,6 +23,7 @@ class _LandingPageState extends State<LandingPage> {
     false,
     false,
   ];
+
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class _LandingPageState extends State<LandingPage> {
               AppBarItems(
                 text: 'Home',
                 isSlected: appItem[0],
-                ontap: () {
+                onTap: () {
                   _handleTab(0);
                 },
               ),
@@ -55,7 +56,7 @@ class _LandingPageState extends State<LandingPage> {
               AppBarItems(
                 text: 'About',
                 isSlected: appItem[1],
-                ontap: () {
+                onTap: () {
                   _handleTab(1);
                 },
               ),
@@ -63,7 +64,7 @@ class _LandingPageState extends State<LandingPage> {
               AppBarItems(
                 text: 'Skills',
                 isSlected: appItem[2],
-                ontap: () {
+                onTap: () {
                   _handleTab(2);
                 },
               ),
@@ -71,7 +72,7 @@ class _LandingPageState extends State<LandingPage> {
               AppBarItems(
                 text: 'Portfolio',
                 isSlected: appItem[3],
-                ontap: () {
+                onTap: () {
                   _handleTab(3);
                 },
               ),
@@ -79,7 +80,7 @@ class _LandingPageState extends State<LandingPage> {
               AppBarItems(
                 text: 'Contact',
                 isSlected: appItem[4],
-                ontap: () {
+                onTap: () {
                   _handleTab(4);
                 },
               ),
@@ -91,10 +92,10 @@ class _LandingPageState extends State<LandingPage> {
         child: Column(
           children: [
             HomeScreen(),
-            AboutScreen(),
-            ServiceScreen(),
-            ProjectScreen(),
-            ContactScreen(),
+            //AboutScreen(),
+            // ServiceScreen(),
+            // ProjectScreen(),
+            // ContactScreen(),
           ],
         ),
       ),

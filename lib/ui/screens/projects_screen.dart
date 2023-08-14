@@ -26,9 +26,10 @@ class _ProjectScreenState extends State<ProjectScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
+      color: AppColors.containerColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

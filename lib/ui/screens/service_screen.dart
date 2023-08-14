@@ -19,7 +19,7 @@ class ServiceScreen extends StatelessWidget {
         children: [
           FadeInDown(
             duration: const Duration(milliseconds: 2000),
-            child: const HeadingText(text1: 'Our', text2: ' Services'),
+            child: const HeadingText(text1: 'My', text2: ' Services'),
           ),
           const SizedBox(height: AppSize.defaultheight),
           FadeInUp(

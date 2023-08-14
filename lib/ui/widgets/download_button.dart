@@ -18,29 +18,36 @@ class DownloadButton extends StatefulWidget {
 }
 
 class _DownloadButtonState extends State<DownloadButton> {
+  bool ishover = false;
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      focusColor: AppColors.secondaryColor,
-      padding: const EdgeInsets.symmetric(
-          horizontal: AppSize.defaultSize, vertical: AppSize.defaultSize / 2),
-      color:
-          widget.isSelected ? AppColors.primaryColor : AppColors.secondaryColor,
-      shape: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSize.defaultSize),
-          borderSide: const BorderSide(color: AppColors.secondaryColor)),
-      onPressed: () {
+    return MouseRegion(
+      onEnter: (event) {
         setState(() {
-          widget.isSelected = !widget.isSelected;
+          ishover = true;
         });
       },
-      child: Text(
-        widget.buttonName,
-        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-              color: widget.isSelected
-                  ? AppColors.secondaryColor
-                  : AppColors.primaryColor,
-            ),
+      onExit: (event) {
+        setState(() {
+          ishover = false;
+        });
+      },
+      child: MaterialButton(
+        focusColor: AppColors.secondaryColor,
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppSize.defaultSize, vertical: AppSize.defaultSize / 2),
+        color: ishover ? AppColors.primaryColor : AppColors.secondaryColor,
+        shape: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(AppSize.defaultSize),
+            borderSide: const BorderSide(color: AppColors.secondaryColor)),
+        onPressed: () {},
+        child: Text(
+          widget.buttonName,
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color:
+                    ishover ? AppColors.secondaryColor : AppColors.primaryColor,
+              ),
+        ),
       ),
     );
   }

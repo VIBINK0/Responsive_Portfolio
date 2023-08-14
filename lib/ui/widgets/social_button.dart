@@ -15,13 +15,13 @@ class SocialButton extends StatefulWidget {
 }
 
 class _SocialButtonState extends State<SocialButton> {
-  List<bool> isSelectedList = [
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
+  // List<bool> isSelectedList = [
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  // ];
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -31,9 +31,9 @@ class _SocialButtonState extends State<SocialButton> {
           delay: const Duration(seconds: 1),
           child: SocialMedias(
             image: AppAssets.face,
-            isselected: isSelectedList[0],
+            //  isselected: isSelectedList[0],
             ontap: () {
-              _handleTap(0);
+              //  _handleTap(0);
             },
           ),
         ),
@@ -43,9 +43,9 @@ class _SocialButtonState extends State<SocialButton> {
           delay: const Duration(milliseconds: 1500),
           child: SocialMedias(
             image: AppAssets.twit,
-            isselected: isSelectedList[1],
+            //  isselected: isSelectedList[1],
             ontap: () {
-              _handleTap(1);
+              // _handleTap(1);
             },
           ),
         ),
@@ -54,10 +54,10 @@ class _SocialButtonState extends State<SocialButton> {
           duration: const Duration(milliseconds: 2000),
           delay: const Duration(milliseconds: 2000),
           child: SocialMedias(
-            isselected: isSelectedList[2],
+            //   isselected: isSelectedList[2],
             image: AppAssets.insta,
             ontap: () {
-              _handleTap(2);
+              // _handleTap(2);
             },
           ),
         ),
@@ -66,10 +66,10 @@ class _SocialButtonState extends State<SocialButton> {
           duration: const Duration(milliseconds: 2000),
           delay: const Duration(milliseconds: 2500),
           child: SocialMedias(
-            isselected: isSelectedList[3],
+            //   isselected: isSelectedList[3],
             image: AppAssets.link,
             ontap: () {
-              _handleTap(3);
+              // _handleTap(3);
             },
           ),
         ),
@@ -79,9 +79,9 @@ class _SocialButtonState extends State<SocialButton> {
           delay: const Duration(milliseconds: 3000),
           child: SocialMedias(
             image: AppAssets.git,
-            isselected: isSelectedList[4],
+            //   isselected: isSelectedList[4],
             ontap: () {
-              _handleTap(4);
+              //  _handleTap(4);
             },
           ),
         ),
@@ -89,12 +89,12 @@ class _SocialButtonState extends State<SocialButton> {
     );
   }
 
-  void _handleTap(int index) {
-    setState(() {
-      for (int i = 0; i < isSelectedList.length; i++) {
-        isSelectedList[i] = false;
-      }
-      isSelectedList[index] = !isSelectedList[index];
-    });
-  }
+//   void _handleTap(int index) {
+//     setState(() {
+//       for (int i = 0; i < isSelectedList.length; i++) {
+//         isSelectedList[i] = false;
+//       }
+//       isSelectedList[index] = !isSelectedList[index];
+//     });
+//   }
 }
