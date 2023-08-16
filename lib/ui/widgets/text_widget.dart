@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:portfolio/ui/helper_class/helper_class.dart';
 
 import '../../util/app_colors.dart';
 import '../../util/app_size.dart';
@@ -62,20 +63,36 @@ class TextWidget extends StatelessWidget {
           ],
         ),
         const SizedBox(height: AppSize.defaultheight / 2.5),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 2.3,
-          child: FadeInLeft(
-            duration: const Duration(milliseconds: 1500),
-            delay: const Duration(milliseconds: 1500),
-            child: Text(
-              'Passionate about creating engaging and interactive user experiences, I am a Computer Science graduate with expertise in Flutter, Dart, HTML, and CSS..... ',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .copyWith(color: AppColors.primaryTextColor),
+        if (HelperClass.isdesktop(context))
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 2.3,
+            child: FadeInLeft(
+              duration: const Duration(milliseconds: 1500),
+              delay: const Duration(milliseconds: 1500),
+              child: Text(
+                'Passionate about creating engaging and interactive user experiences, I am a Computer Science graduate with expertise in Flutter, Dart, HTML, and CSS..... ',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: AppColors.primaryTextColor),
+              ),
             ),
           ),
-        ),
+        if (!HelperClass.isdesktop(context))
+          FadeInLeft(
+            duration: const Duration(milliseconds: 1500),
+            delay: const Duration(milliseconds: 1500),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width / 2.3,
+              child: Text(
+                'Passionate about creating engaging and interactive user experiences, I am a Computer Science graduate with expertise in Flutter, Dart, HTML, and CSS..... ',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: AppColors.primaryTextColor),
+              ),
+            ),
+          ),
       ],
     );
   }

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/screens/contact_screen.dart';
-import 'package:portfolio/ui/screens/projects_screen.dart';
-import 'package:portfolio/ui/screens/service_screen.dart';
 import 'package:portfolio/util/app_colors.dart';
 import 'package:portfolio/util/app_size.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'screens/about_screen.dart';
+import 'screens/contact_screen.dart';
 import 'screens/home_screen.dart';
-import 'widgets/appbar_items.dart';
+import 'screens/projects_screen.dart';
+import 'screens/service_screen.dart';
+import 'widgets/appbar_item.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -16,6 +17,8 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  final ItemScrollController _itemScrollController = ItemScrollController();
+
   List<bool> appItem = [
     true,
     false,
@@ -24,80 +27,127 @@ class _LandingPageState extends State<LandingPage> {
     false,
   ];
 
+  List appItemName = <String>[
+    'Home',
+    'About',
+    'Services',
+    'Portfolio',
+    'Contact',
+  ];
+
+  final screensList = const <Widget>[
+    HomeScreen(),
+    AboutScreen(),
+    ServiceScreen(),
+    ProjectScreen(),
+    ContactScreen(),
+  ];
+
+  Future scrollTo({required int index}) async {
+    _itemScrollController.scrollTo(
+      index: index,
+      duration: const Duration(milliseconds: 500),
+    );
+  }
+
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 30,
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
         toolbarHeight: AppSize.defaultheight,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSize.appBarwidth),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                'Portfolio.',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineLarge!
-                    .copyWith(color: AppColors.primaryTextColor),
-              ),
-              const Spacer(),
-              AppBarItems(
-                text: 'Home',
-                isSlected: appItem[0],
-                onTap: () {
-                  _handleTab(0);
-                },
-              ),
-              const SizedBox(width: AppSize.defaultSize),
-              AppBarItems(
-                text: 'About',
-                isSlected: appItem[1],
-                onTap: () {
-                  _handleTab(1);
-                },
-              ),
-              const SizedBox(width: AppSize.defaultSize),
-              AppBarItems(
-                text: 'Skills',
-                isSlected: appItem[2],
-                onTap: () {
-                  _handleTab(2);
-                },
-              ),
-              const SizedBox(width: AppSize.defaultSize),
-              AppBarItems(
-                text: 'Portfolio',
-                isSlected: appItem[3],
-                onTap: () {
-                  _handleTab(3);
-                },
-              ),
-              const SizedBox(width: AppSize.defaultSize),
-              AppBarItems(
-                text: 'Contact',
-                isSlected: appItem[4],
-                onTap: () {
-                  _handleTab(4);
-                },
-              ),
-            ],
-          ),
-        ),
+        title: LayoutBuilder(builder: (context, constraints) {
+          if (constraints.maxWidth < 750) {
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  'Portfolio.',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineLarge!
+                      .copyWith(color: AppColors.primaryTextColor),
+                ),
+                const Spacer(),
+                PopupMenuButton(
+                  position: PopupMenuPosition.under,
+                  constraints: BoxConstraints.tightFor(
+                      width: MediaQuery.of(context).size.width / 1.2),
+                  icon: const Icon(Icons.menu),
+                  itemBuilder: (BuildContext context) => appItemName
+                      .asMap()
+                      .entries
+                      .map(
+                        (e) => PopupMenuItem(
+                          textStyle: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(color: AppColors.primaryTextColor),
+                          child: Text(e.value),
+                          onTap: () {
+                            scrollTo(index: e.key);
+                          },
+                        ),
+                      )
+                      .toList(),
+                )
+              ],
+            );
+          } else {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  'Portfolio.',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineLarge!
+                      .copyWith(color: AppColors.primaryTextColor),
+                ),
+                const Spacer(),
+                SizedBox(
+                  height: 30,
+                  child: ListView.separated(
+                    itemCount: appItemName.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(width: AppSize.defaultSize),
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        splashColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () {
+                          scrollTo(index: index);
+                          _handleTab(index);
+                        },
+                        borderRadius: BorderRadius.circular(100),
+                        child: AppBarItems(
+                          text: appItemName[index],
+                          isSlected: appItem[index],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            );
+          }
+        }),
       ),
-      body: const SingleChildScrollView(
-        child: Column(
-          children: [
-            HomeScreen(),
-            //AboutScreen(),
-            // ServiceScreen(),
-            // ProjectScreen(),
-            // ContactScreen(),
-          ],
-        ),
+      body: ScrollablePositionedList.builder(
+        itemCount: screensList.length,
+        itemScrollController: _itemScrollController,
+        // itemPositionsListener: itemPositionsListener,
+        //scrollOffsetListener: scrollOffsetListener,
+        itemBuilder: (context, index) {
+          return screensList[index];
+        },
       ),
     );
   }

@@ -16,29 +16,36 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HelperClass(
-      mobile: const Padding(
-        padding: EdgeInsets.only(
-          top: 50,
-        ),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            HomeInfoWidget(),
-            SizedBox(height: 150),
-            AnimatedImage(),
-          ],
+      mobile: SizedBox(
+        //height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: const Padding(
+          padding: EdgeInsets.only(
+            top: 50,
+            left: 30,
+            right: 30,
+            bottom: 150,
+          ),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              HomeInfoWidget(),
+              SizedBox(height: 180),
+              AnimatedImage(),
+            ],
+          ),
         ),
       ),
       tablet: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: const Padding(
-          padding: EdgeInsets.only(top: 150),
+          padding: EdgeInsets.only(top: 150, left: 30, right: 30),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              HomeInfoWidget(),
+              Expanded(child: HomeInfoWidget()),
               AnimatedImage(),
             ],
           ),

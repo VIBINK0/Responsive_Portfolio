@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/ui/widgets/download_button.dart';
-import 'package:portfolio/util/app_assets.dart';
+
 import 'package:portfolio/util/app_colors.dart';
 import 'package:portfolio/util/app_size.dart';
 
@@ -77,7 +77,7 @@ class _ContainerWidgetState extends State<ContainerWidget> {
                   .textTheme
                   .bodySmall!
                   .copyWith(color: AppColors.primaryTextColor),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
             ),
             // const SizedBox(height: AppSize.defaultSize / 4),
             DownloadButton(buttonName: 'Read More..')
