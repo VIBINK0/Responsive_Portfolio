@@ -143,8 +143,6 @@ class _LandingPageState extends State<LandingPage> {
       body: ScrollablePositionedList.builder(
         itemCount: screensList.length,
         itemScrollController: _itemScrollController,
-        // itemPositionsListener: itemPositionsListener,
-        //scrollOffsetListener: scrollOffsetListener,
         itemBuilder: (context, index) {
           return screensList[index];
         },

@@ -23,7 +23,7 @@ class AboutScreen extends StatelessWidget {
         color: AppColors.containerColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: 10, vertical: AppSize.defaultSize),
+              horizontal: 30, vertical: AppSize.defaultSize),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -61,7 +61,7 @@ class AboutScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: AppSize.defaultSize / 2),
-              Expanded(child: const AboutPageInfo())
+              const Expanded(child: const AboutPageInfo())
             ],
           ),
         ),

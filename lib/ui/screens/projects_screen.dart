@@ -129,7 +129,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                                                 fontSize: 24),
                                       ),
                                       Text(
-                                        'Passionate about creating engaging and interactive user experiences, I am a Computer Science graduate with expertise in Flutter, Dart, HTML, and CSS.....',
+                                        'OOps! Something Wrong',
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodySmall!

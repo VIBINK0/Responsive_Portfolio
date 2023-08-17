@@ -17,22 +17,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return HelperClass(
       mobile: SizedBox(
-        //height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: const Padding(
           padding: EdgeInsets.only(
             top: 50,
             left: 30,
-            right: 30,
-            bottom: 150,
           ),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               HomeInfoWidget(),
               SizedBox(height: 180),
-              AnimatedImage(),
+              Padding(
+                padding: EdgeInsets.only(right: 30),
+                child: AnimatedImage(),
+              ),
             ],
           ),
         ),
@@ -78,7 +76,6 @@ class HomeInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      // mainAxisSize: MainAxisSize.min,
       children: [
         const TextWidget(),
         const SizedBox(height: AppSize.defaultheight / 2.5),

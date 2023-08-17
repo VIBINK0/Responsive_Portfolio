@@ -33,30 +33,30 @@ class ContactScreen extends StatelessWidget {
                   name: 'Full Name',
                 ),
               ),
-              const SizedBox(height: AppSize.defaultSize),
+              const SizedBox(height: AppSize.defaultSize / 3),
               const Expanded(
                 child: TextFileldWidget(
                   name: 'Email Address',
                 ),
               ),
-              const SizedBox(height: AppSize.defaultSize),
+              const SizedBox(height: AppSize.defaultSize / 3),
               const Expanded(
                 child: TextFileldWidget(
                   name: 'Mobile Number',
                 ),
               ),
-              const SizedBox(height: AppSize.defaultSize),
+              const SizedBox(height: AppSize.defaultSize / 3),
               const Expanded(
                 child: TextFileldWidget(
                   name: 'Email Subject',
                 ),
               ),
-              const SizedBox(height: AppSize.defaultSize),
+              const SizedBox(height: AppSize.defaultSize / 3),
               const TextFileldWidget(
                 name: 'Your Message',
                 maxline: 10,
               ),
-              const SizedBox(height: AppSize.defaultSize),
+              const SizedBox(height: AppSize.defaultSize / 2),
               DownloadButton(
                 buttonName: 'Send Message',
               ),
